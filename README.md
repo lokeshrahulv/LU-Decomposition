@@ -37,11 +37,12 @@ Developed by: LOKESH RAHUL V V
 RegisterNumber:22004702
 
 import numpy as np
-from scipy.linalg import lu
+from scipy.linalg import lu_factor,lu_solve
 A=np.array(eval(input()))
-P,L,U = lu(A)
-print(L)
-print(U)
+B=np.array(eval(input()))
+lu,piv=lu_factor(A)
+x=lu_solve((lu,piv),B)
+print(x)
 
 ```
 
